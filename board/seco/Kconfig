@@ -63,3 +63,40 @@ config SYS_CONFIG_NAME
 	default "secomx6quq7" if SECOMX6_UQ7 && SECOMX6Q
 
 endif
+if TARGET_SECOBOARD
+
+config SYS_VENDOR
+        default "seco"
+
+config SYS_SOC
+        default "mx6"
+
+config SECO_COMMON_BOARD
+        bool
+        default "yes"
+  
+config SECO_COMMON_DISPLAY
+        bool
+        default "yes"
+  
+config SECO_COMMON_PFUZE
+        bool
+        default "yes"
+  
+config SECO_COMMON_RGMII
+        bool
+        default "yes"
+  
+config SECO_COMMON_RMII
+        bool
+        default "yes"
+  
+config SECO_COMMON_USDHC
+        bool
+        default "yes"
+
+config OF_LOAD_MANUALLY
+        bool
+        default "yes"
+  
+endif

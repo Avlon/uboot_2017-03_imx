@@ -1712,6 +1712,7 @@ unsigned int fastboot_flash_get_ptn_count(void)
 	return g_pcount;
 }
 
+#ifndef CONFIG_OF_LOAD_MANUALLY
 #ifdef CONFIG_FSL_FASTBOOT
 void board_fastboot_setup(void)
 {
@@ -1799,6 +1800,7 @@ void board_recovery_setup(void)
 }
 #endif /*CONFIG_ANDROID_RECOVERY*/
 #endif /*CONFIG_FSL_FASTBOOT*/
+#endif /*CONFIG_OF_LOAD_MANUALLY*/
 
 #if defined(CONFIG_AVB_SUPPORT) && defined(CONFIG_MMC)
 static AvbABOps fsl_avb_ab_ops = {
@@ -2335,6 +2337,7 @@ use_given_ptn:
 		flush_cache((ulong)hdr->ramdisk_addr, ((hdr->ramdisk_size / 512) + 1) * 512); /* FIXME */
 
 #ifdef CONFIG_OF_LIBFDT
+#ifndef CONFIG_OF_LOAD_MANUALLY
 		/* load the dtb file */
 		if (hdr->second_size && hdr->second_addr) {
 			sector += ALIGN(hdr->ramdisk_size, hdr->page_size) / 512;
@@ -2347,6 +2350,7 @@ use_given_ptn:
 			/* flush cache after read */
 			flush_cache((ulong)hdr->second_addr, ((hdr->second_size / 512) + 1) * 512); /* FIXME */
 		}
+#endif
 #endif /*CONFIG_OF_LIBFDT*/
 
 #else /*! CONFIG_MMC*/

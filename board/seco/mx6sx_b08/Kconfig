@@ -1,0 +1,9 @@
+if TARGET_SECO_B08
+
+config SYS_BOARD
+	default "mx6sx_b08"
+
+config SYS_CONFIG_NAME
+	default "seco_imx6sx_b08_android"
+
+endif
