@@ -393,18 +393,16 @@ config TARGET_SECOMX6
  	select BOARD_EARLY_INIT_F
  	select BOARD_LATE_INIT
 
-config TARGET_SECOBOARD
-	bool "secomx6 boards"
-	select SUPPORT_SPL
-
 config TARGET_SECO_B08
 	bool "Support Seco B08"
 	select CPU_V7
+	select SECO_SYSTEM
 	select SUPPORT_SPL
 
 config TARGET_SECO_uQ7_MX6DL
 	bool "Support Seco uQ7 board module family"
 	select CPU_V7
+	select SECO_SYSTEM
 	select SUPPORT_SPL
 
 config TARGET_TBS2910
