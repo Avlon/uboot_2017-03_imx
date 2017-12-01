@@ -142,7 +142,7 @@ void board_fastboot_setup(void)
 	    if (!getenv("fastboot_dev"))
 			setenv("fastboot_dev", "mmc0");
 	    if (!getenv("bootcmd"))
-			setenv("bootcmd", "if run loadbootscript; then run bootscript; fi; run seco_boot_init; boota mmc0 mmcsdb1");
+			setenv("bootcmd", "mmc dev 0; run seco_boot_init; boota mmc0 mmcsdb1");
 	    break;
 	case SD1_BOOT:
 	case SD3_BOOT:
@@ -600,14 +600,19 @@ int do_secoinit(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	}
 
 //	char* video_part = "-lvds7hdmi";
-	char* video_part = "";
+	char* video_part = "-hdmi";
 	char* video = getenv("video_output");
 	
 	if (video) {
 		video = trim(video);
-		if (strcmp(video, "lvds7") == 0) {
-//			video_part = "-lvds7";
-			video_part = "";
+		if (strcmp(video, "lvds") == 0) {
+			video_part = "-lvds";
+#ifdef CONFIG_ANDROID_SUPPORT
+			setenv("lcd_density", "128");
+#endif
+#if 0
+		} else if (strcmp(video, "lvds7") == 0) {
+			video_part = "-lvds7";
 #ifdef CONFIG_ANDROID_SUPPORT
 			setenv("lcd_density", "128");
 #endif
@@ -617,6 +622,7 @@ int do_secoinit(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 			video_part = "-lvds7hdmi";
 #ifdef CONFIG_ANDROID_SUPPORT
 			setenv("lcd_density", "128");
+#endif
 #endif
 		} else if (strcmp(video, "hdmi") == 0) {
 			video_part = "-hdmi";

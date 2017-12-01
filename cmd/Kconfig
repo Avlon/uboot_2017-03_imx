@@ -531,6 +531,16 @@ config CMD_SETEXPR
 
 endmenu
 
+menu "Seco menu"
+
+config CMD_SECO_CONFIG
+	bool "seco_config"
+	default y
+	help
+	  Used to configure Seco boards
+
+endmenu
+
 menu "Network commands"
 
 config CMD_NET

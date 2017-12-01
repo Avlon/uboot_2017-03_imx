@@ -117,6 +117,7 @@ obj-$(CONFIG_SANDBOX) += host.o
 obj-$(CONFIG_CMD_SATA) += sata.o
 obj-$(CONFIG_CMD_SF) += sf.o
 obj-$(CONFIG_SCSI) += scsi.o disk.o
+obj-$(CONFIG_CMD_SECO_CONFIG) += seco_config.o
 obj-$(CONFIG_CMD_SHA1SUM) += sha1sum.o
 obj-$(CONFIG_CMD_SETEXPR) += setexpr.o
 obj-$(CONFIG_CMD_SOFTSWITCH) += softswitch.o

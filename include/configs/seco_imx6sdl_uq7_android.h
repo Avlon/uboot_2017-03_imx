@@ -323,7 +323,7 @@
 	"fdt_loadaddr=0x14f00000\0" \
 	"script=uEnv.txt\0" \
 	"loadbootscript=" \
-		"ext2load mmc 0:4 ${kernel_loadaddr} ${script};\0" \
+		"ext2load mmc ${mmc_cur}:4 ${kernel_loadaddr} ${script};\0" \
 	"bootscript=echo Running bootscript from mmc ...; " \
 		"env import -t ${kernel_loadaddr} ${filesize};\0" \
 	"seco_boot_init=" \
