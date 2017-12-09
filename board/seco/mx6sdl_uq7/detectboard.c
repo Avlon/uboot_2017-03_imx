@@ -47,8 +47,34 @@ int detect_board_short(void)
  * 0x14 = RGB 7''
  * 0x55 = LVDS 7''
  */
-int detect_video(void)
+int detect_video(char *video)
 {
+	if (strcmp(video, "auto") == 0)
+		return HDMI_1920x1080;
+	else if (strcmp(video, "hdmi") == 0)
+		return HDMI_1920x1080;
+	else if (strcmp(video, "lvds7") == 0)
+		return LVDS_800x480;
+	else if (strcmp(video, "lvds800x480") == 0)
+		return LVDS_800x480;
+	else if (strcmp(video, "lvds800x600") == 0)
+		return LVDS_800x600;
+	else if (strcmp(video, "lvds1024x768") == 0)
+		return LVDS_1024x768;
+	else if (strcmp(video, "lvds1368x768") == 0)
+		return LVDS_1368x768;
+	else if (strcmp(video, "lvds1280x800") == 0)
+		return LVDS_1280x800;
+	else if (strcmp(video, "lvds1280x1024") == 0)
+		return LVDS_1280x1024;
+	else if (strcmp(video, "lvds1680x1050") == 0)
+		return LVDS_1680x1050;
+	else if (strcmp(video, "lvds1920x1080") == 0)
+		return LVDS_1920x1080;
+	else
+		return HDMI_1920x1080;
+	
+/*
         I2C_SET_BUS(TOUCH_I2C_BUS);
         int j = 0, ret = 0;
 
@@ -66,5 +92,6 @@ int detect_video(void)
            }
         }
         return 0;
+*/
 }
 

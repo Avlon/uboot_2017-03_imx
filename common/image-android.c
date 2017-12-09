@@ -113,6 +113,13 @@ int android_image_get_kernel(const struct andr_img_hdr *hdr, int verify,
 		printf("boot device type is incorrect.\n");
 	strcat(commandline, newbootargs);
 
+	char *video_args = getenv("lvds_video_args");
+	if (video_args) {
+		strcat(commandline, video_args);
+		printf("Kernel command line with LCD video args = %s\n", video_args);
+	}
+
+
 #ifdef CONFIG_FSL_BOOTCTL
 	sprintf(newbootargs, " androidboot.slot_suffix=%s", get_slot_suffix());
 	strcat(commandline, newbootargs);
