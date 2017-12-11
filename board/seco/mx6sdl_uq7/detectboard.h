@@ -37,7 +37,8 @@ enum {
 	LVDS_1280x800,
 	LVDS_1280x1024,
 	LVDS_1680x1050,
-	LVDS_1920x1080
+	LVDS_1920x1080,
+	LVDS_HDMI
 };
 
 static lvds_video_spec_t lvds_video_spec_list [] = {
@@ -50,6 +51,7 @@ static lvds_video_spec_t lvds_video_spec_list [] = {
 	{ LVDS_1280x1024, "SXGA    [1280x1024]", "LDB-SXGA",    "RGB24",        "",         1, 160, "-lvds" },
 	{ LVDS_1680x1050, "1050P60 [1680x1050]", "LDB-1050P60", "RGB24",        "",         1, 160, "-lvds" },
 	{ LVDS_1920x1080, "HD1080  [1920x1080]", "LDB-1080P60", "RGB24",        "ldb=spl0", 2, 160, "-lvds" },
+	{ LVDS_HDMI,  	  "LVDS WVGA + HDMI",    "LDB-WVGA",    "RGB666",       "",         1, 128, "-lvds-hdmi" },
 };
 
 int detect_board(void);

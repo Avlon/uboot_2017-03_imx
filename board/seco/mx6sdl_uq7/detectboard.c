@@ -53,6 +53,8 @@ int detect_video(char *video)
 		return HDMI_1920x1080;
 	else if (strcmp(video, "hdmi") == 0)
 		return HDMI_1920x1080;
+	else if (strcmp(video, "lvds7-hdmi") == 0)
+		return LVDS_HDMI;
 	else if (strcmp(video, "lvds7") == 0)
 		return LVDS_800x480;
 	else if (strcmp(video, "lvds800x480") == 0)
