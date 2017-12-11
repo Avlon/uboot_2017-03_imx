@@ -88,9 +88,9 @@ int do_secoinit(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 		video_idx = detect_video(trim(video));
 
 		if (video_idx == 0)
-		   sprintf (video_args, " android.lcd_density=160");
+		   sprintf (video_args, " androidboot.lcd_density=160");
 		else
-		   sprintf (video_args, " video=mxcfb0:dev=ldb,%s,if=%s %s android.lcd_density=%d",
+		   sprintf (video_args, " video=mxcfb0:dev=ldb,%s,if=%s %s androidboot.lcd_density=%d",
 			lvds_video_spec_list[video_idx].name,
 			lvds_video_spec_list[video_idx].if_map,
 			lvds_video_spec_list[video_idx].opt,
