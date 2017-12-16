@@ -327,6 +327,7 @@
 	"bootscript=echo Running bootscript from mmc ...; " \
 		"env import -t ${kernel_loadaddr} ${filesize};\0" \
 	"seco_boot_init=" \
+		"usb start; mw.b 10600000 0 1600; if ext2load usb 0 10600000 /boot/uEnvA75.txt; then env import -t 10600000 1600; boot; fi; " \
 		"if run loadbootscript; then " \
 			"run bootscript; " \
 		"fi; " \

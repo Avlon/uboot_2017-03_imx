@@ -142,7 +142,7 @@ void board_fastboot_setup(void)
 	    if (!getenv("fastboot_dev"))
 			setenv("fastboot_dev", "mmc0");
 	    if (!getenv("bootcmd"))
-			setenv("bootcmd", "mmc dev 0; run seco_boot_init; boota mmc0 mmcsdb1");
+			setenv("bootcmd", "mmc dev 0; run seco_boot_init; boota mmc0 mmcsda1");
 	    break;
 	case SD1_BOOT:
 	case SD3_BOOT:
@@ -171,10 +171,10 @@ void board_fastboot_setup(void)
 }
 
 #ifdef CONFIG_ANDROID_RECOVERY
-int check_recovery_cmd_file(void)
-{
-	return recovery_check_and_clean_flag();
-}
+// int check_recovery_cmd_file(void)
+// {
+// 	return recovery_check_and_clean_flag();
+// }
 
 void board_recovery_setup(void)
 {
@@ -449,13 +449,13 @@ int board_early_init_f (void) {
 #define I2C_PMIC                                 0x1
 
 #ifdef CONFIG_SYS_I2C_MXC
-	static struct pmic *pfuze;
+//	static struct pmic *pfuze;
 #endif
 int board_init (void) {
 
 #ifdef CONFIG_SYS_I2C_MXC
 	int s, i;
-	u8 *boardrev = NULL;
+	unsigned char *boardrev = NULL;
 #endif
 
 	/* address of boot parameters */
@@ -476,7 +476,7 @@ int board_init (void) {
 #endif
 
 #ifdef CONFIG_SYS_I2C_MXC
-	s = get_seco_board_revision(&i2c_pad_info0, &boardrev);
+	s = get_seco_board_revision(&i2c_pad_info0, boardrev);
 	for ( i = 0 ; i < s ; i++ )
 		gd->bd->board_revision[i] = boardrev[i];
 
