@@ -1209,46 +1209,7 @@ int create_lvds_video_args (char *video_args, int list_idx, int fb_idx,
 
 static int do_seco_config (cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[]) {
 
-	/* generic  */
-	int use_tftp = 0;
-	char serverip_tftp[25];
-	char ipaddr_tftp[25];
-
-	int set_memory = 0;
-	int set_kernel = 0;
-	int set_fdt = 0;
-	int set_filesystem = 0;
 	int set_video = 0;
-
-	/*  memory RAM  */
-	ulong min_size = 512;
-	ulong max_size;
-	char memory_buff[50];
-	char *line;
-
-	/*  for kernel  */
-	int kernel_selected_device;
-	char kernel_part_id[2];
-	char kernel_filename[100];
-	char kernel_spi_load_address[20];
-	char kernel_spi_load_length[20];
-
-	/*  for fdt  */
-	int fdt_selected_device;
-	char fdt_part_id[2];
-	char fdt_filename[100];
-	char fdt_spi_load_address[20];
-	char fdt_spi_load_length[20];
-
-	/*  for filesystem  */
-	int filesystem_selected_device;
-	char filesystem_part_id[2];
-	char filesystem_server_nfs[25];
-	char filesystem_ipaddr_nfs[25];
-	char filesystem_netmask_nfs[25];
-	int  filesystem_use_dhcp;
-	char filesystem_path_nfs[100];
-	char filesystem_boot_string[300];
 
 	/*  for video  */
 	int video_mode_selection;
@@ -1291,21 +1252,6 @@ static int do_seco_config (cmd_tbl_t *cmdtp, int flag, int argc, char * const ar
 			set_default_env ("## Resetting to default environment");
 		}
 
-		if (strcmp(argv[1], "memory") == 0) {
-			set_memory = 1;
-		}
-
-		if (strcmp(argv[1], "ksrc") == 0) {
-			set_kernel = 1;
-		}
-
-		if (strcmp(argv[1], "fdtsrc") == 0) {
-			set_fdt = 1;
-		}
-
-		if (strcmp(argv[1], "fssrc") == 0) {
-			set_filesystem = 1;
-		}
 
 		if (strcmp(argv[1], "video") == 0) {
 			set_video = 1;
@@ -1326,10 +1272,6 @@ static int do_seco_config (cmd_tbl_t *cmdtp, int flag, int argc, char * const ar
 
 
 	if (argc == 1) {
-		set_memory = 1;
-		set_kernel = 1;
-		set_fdt = 1;
-		set_filesystem = 1;
 		set_video = 1;
 #if defined CONFIG_TARGET_MX6SECO_Q7_928 || CONFIG_TARGET_MX6SECO_UQ7_962 || CONFIG_TARGET_MX6SECO_UQ7_J_A75
 		set_serial_dev = 1;

@@ -486,7 +486,7 @@ int board_init (void) {
 
 
 	setup_i2c (I2C_PMIC, CONFIG_SYS_I2C_SPEED, 0x7f, &i2c_pad_info1);
-	pfuze = pfuze_common_init(I2C_PMIC);
+//	pfuze = pfuze_common_init(I2C_PMIC);
 #endif
 
 	print_boot_device ();
@@ -536,7 +536,7 @@ iomux_v3_cfg_t const pcie_pads[] = {
 	MX6_PAD_GPIO_17__GPIO7_IO12 | MUX_PAD_CTRL(NO_PAD_CTRL),	/* RESET */
 };
 
-static void setup_pcie(void)
-{
-	imx_iomux_v3_setup_multiple_pads(pcie_pads, ARRAY_SIZE(pcie_pads));
-}
+// static void setup_pcie(void)
+// {
+// 	imx_iomux_v3_setup_multiple_pads(pcie_pads, ARRAY_SIZE(pcie_pads));
+// }
