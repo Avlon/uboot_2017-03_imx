@@ -273,7 +273,7 @@ inline void enable_ethernet_rail (void) {
 
 boot_mem_dev_t boot_mem_dev_list[SECO_NUM_BOOT_DEV] = {
 	{ 0x3, 0x3, -1,  -1,  0, "SPI Nor" },
-	{ 0x4, 0x5, -1,   0, -1, "External SD" },
+	{ 0x4, 0x5, -1,   3, -1, "External SD" },
 	{ 0x6, 0x7, -1,  -1, -1, "eMMC" },
 };
 
