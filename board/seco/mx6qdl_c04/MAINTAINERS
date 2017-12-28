@@ -1,0 +1,6 @@
+SECO B08 BOARD
+M:	Giuseppe Pagano <giuseppe.pagano@seco.com>
+S:	Maintained
+F:	board/seco/mx6sx_b08/
+F:	include/configs/secomx6sx_b08_android.h
+F:	configs/secomx6sx_b08_andorid_defconfig
