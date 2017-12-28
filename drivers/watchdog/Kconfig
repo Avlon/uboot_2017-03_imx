@@ -5,4 +5,9 @@ config ULP_WATCHDOG
 	help
 	  Say Y here to enable i.MX7ULP watchdog driver.
 
+config APX_WATCHDOG
+	bool "APX watchdog"
+	help
+	  Say Y here to enable APX watchdog driver.
+
 endmenu
