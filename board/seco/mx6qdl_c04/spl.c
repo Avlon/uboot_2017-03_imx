@@ -32,6 +32,8 @@
 #include "../include/962/ddr_962dl_1G_4x256.h"
 #include "../include/962/ddr_962dl_512M_2x256.h"
 
+#include "../include/c04/ddr_c04dl_2G_4x512.h"
+
 static void ccgr_init(void)
 {
 	struct mxc_ccm_reg *ccm = (struct mxc_ccm_reg *)CCM_BASE_ADDR;
@@ -54,6 +56,13 @@ static void spl_dram_init(void)
 	struct mx6_mmdc_calibration  mx6_mmcd_calib;
 
 	switch (detect_board()) {
+
+	   case MX6_C04DL_2GB_4x512:
+		mem_ddr = mem_ddr_2G_4x512;
+		mx6_ddr_ioregs = mx6_ddr_2G_4x512_ioregs;
+		mx6_grp_ioregs = mx6_grp_2G_4x512_ioregs;
+		mx6_mmcd_calib = mx6_c04dl_mmcd_2G_4x512_calib;
+		break;
 
 	   case MX6_A75DL_1GB_2x512:
 		mem_ddr = mem_ddr_1G_2x512;

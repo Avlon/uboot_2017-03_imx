@@ -69,7 +69,7 @@
 
 /***********   SECO   ***************/
 #define SECO_NUM_BOOT_DEV                        3
-#define CONFIG_DDR_MB 1024
+#define CONFIG_DDR_MB 			      2048
 #define CONFIG_SECO_COMMON_BOARD                 1
 #define CONFIG_SECO_COMMON_USDHC                 1
 #define CONFIG_SECO_COMMON_RGMII                 1

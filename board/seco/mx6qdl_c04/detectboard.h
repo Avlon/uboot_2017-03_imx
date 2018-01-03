@@ -13,9 +13,11 @@
 #define MX6_962DL_512MB_2x256	0x0004
 #define MX6_962DL_1GB_4x256	0x0005
 #define MX6_962DL_2GB_4x512	0x0006
+#define MX6_C04DL_2GB_4x512 	0x0007
 
 #define MX6_SECO_A75		0x0000
 #define MX6_SECO_962		0x0001
+#define MX6_SECO_C04		0x0002
 
 typedef struct lvds_video_spec {
 	int  idx;

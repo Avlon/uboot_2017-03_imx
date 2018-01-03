@@ -34,7 +34,7 @@ int detect_revision(void)
 
 int detect_board(void)
 {
-    return MX6_A75DL_1GB_2x512;
+    return MX6_C04DL_2GB_4x512;
 }
 
 int detect_board_short(void)
