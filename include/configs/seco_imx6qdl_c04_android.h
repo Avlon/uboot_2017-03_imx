@@ -352,7 +352,7 @@
 	"kernel_loadaddr=0x10800000\0" \
 	"fdt_loadaddr=0x14f00000\0" \
 	"script_file=uEnvC04.txt\0" \
-	"usb_test=usb start; mw.b 10600000 0 1600; setenv recoveryboot 0; if ext2load usb 0 10600000 /boot/${script_file}; then env import -t 10600000 1600; fi; \0" \
+	"usb_test=usb start; mw.b 10600000 0 1600; setenv recoveryboot 0; if fatload usb 0 10600000 /boot/${script_file}; then env import -t 10600000 1600; fi; \0" \
 	"seco_boot_init=run usb_test; if test ${recoveryboot} = 1 ; then boot; else secoinit; ext2load mmc ${mmc_cur}:5 ${fdt_loadaddr} ${fdt_file}; fi \0" \
 	"splashpos=m,m\0" \
 	"fdt_high=0xffffffff\0" \

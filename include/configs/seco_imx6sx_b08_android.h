@@ -181,16 +181,12 @@
 	"else run netboot; fi"
 #endif /* ifndef CONFIG_ANDROID_SUPPORT*/
 
-#define CONFIG_SYS_BOOTM_LEN	(16 << 20)
-
 /* Miscellaneous configurable options */
 #define CONFIG_SYS_LONGHELP
 #define CONFIG_SYS_PROMPT		"=> "
 #define CONFIG_AUTO_COMPLETE
-#define CONFIG_SYS_CBSIZE		1024
 
-#define CONFIG_SYS_MAXARGS		256
-#define CONFIG_SYS_BARGSIZE CONFIG_SYS_CBSIZE
+#define CONFIG_SYS_BARGSIZE 		CONFIG_SYS_CBSIZE
 
 #define CONFIG_CMD_MEMTEST
 #define CONFIG_SYS_MEMTEST_START	0x80000000
