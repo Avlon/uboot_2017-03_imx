@@ -14,6 +14,9 @@
 #include <asm/types.h>
 #include <wait_bit.h>
 
+
+// #define DEBUGDDRCONF 1
+
 #if defined(CONFIG_MX6_DDRCAL)
 static void reset_read_data_fifos(void)
 {
@@ -1366,6 +1369,15 @@ void mx6_ddr3_cfg(const struct mx6_ddr_sysinfo *sysinfo,
 	mmdc0->mpdgctrl1 = calib->p0_mpdgctrl1;
 	mmdc0->mprddlctl = calib->p0_mprddlctl;
 	mmdc0->mpwrdlctl = calib->p0_mpwrdlctl;
+
+#ifdef DEBUGDDRCONF
+printf("0x%08x = 0x%08x\n", mmdc0->mpwldectrl0, calib->p0_mpwldectrl0);
+printf("0x%08x = 0x%08x\n", mmdc0->mpwldectrl1, calib->p0_mpwldectrl1);
+printf("0x%08x = 0x%08x\n", mmdc0->mpdgctrl0, calib->p0_mpdgctrl0);
+printf("0x%08x = 0x%08x\n", mmdc0->mpdgctrl1, calib->p0_mpdgctrl1);
+printf("0x%08x = 0x%08x\n", mmdc0->mprddlctl, calib->p0_mprddlctl);
+printf("0x%08x = 0x%08x\n", mmdc0->mpwrdlctl, calib->p0_mpwrdlctl);
+#endif
 	if (sysinfo->dsize > 1) {
 		MMDC1(mpwldectrl0, calib->p1_mpwldectrl0);
 		MMDC1(mpwldectrl1, calib->p1_mpwldectrl1);
@@ -1373,14 +1385,30 @@ void mx6_ddr3_cfg(const struct mx6_ddr_sysinfo *sysinfo,
 		MMDC1(mpdgctrl1, calib->p1_mpdgctrl1);
 		MMDC1(mprddlctl, calib->p1_mprddlctl);
 		MMDC1(mpwrdlctl, calib->p1_mpwrdlctl);
+#ifdef DEBUGDDRCONF
+printf("0x%08x = 0x%08x\n", mmdc1->mpwldectrl0, calib->p1_mpwldectrl0);
+printf("0x%08x = 0x%08x\n", mmdc1->mpwldectrl1, calib->p1_mpwldectrl1);
+printf("0x%08x = 0x%08x\n", mmdc1->mpdgctrl0, calib->p1_mpdgctrl0);
+printf("0x%08x = 0x%08x\n", mmdc1->mpdgctrl1, calib->p1_mpdgctrl1);
+printf("0x%08x = 0x%08x\n", mmdc1->mprddlctl, calib->p1_mprddlctl);
+printf("0x%08x = 0x%08x\n", mmdc1->mpwrdlctl, calib->p1_mpwrdlctl);
+#endif
 	}
 
 	/* Read data DQ Byte0-3 delay */
 	mmdc0->mprddqby0dl = 0x33333333;
 	mmdc0->mprddqby1dl = 0x33333333;
+#ifdef DEBUGDDRCONF
+printf("0x%08x = 0x%08x\n", mmdc0->mprddqby0dl, mmdc0->mprddqby0dl);
+printf("0x%08x = 0x%08x\n", mmdc0->mprddqby1dl, mmdc0->mprddqby1dl);
+#endif
 	if (sysinfo->dsize > 0) {
 		mmdc0->mprddqby2dl = 0x33333333;
 		mmdc0->mprddqby3dl = 0x33333333;
+#ifdef DEBUGDDRCONF
+printf("0x%08x = 0x%08x\n", mmdc0->mprddqby2dl, mmdc0->mprddqby2dl);
+printf("0x%08x = 0x%08x\n", mmdc0->mprddqby3dl, mmdc0->mprddqby3dl);
+#endif
 	}
 
 	if (sysinfo->dsize > 1) {
@@ -1388,6 +1416,12 @@ void mx6_ddr3_cfg(const struct mx6_ddr_sysinfo *sysinfo,
 		MMDC1(mprddqby1dl, 0x33333333);
 		MMDC1(mprddqby2dl, 0x33333333);
 		MMDC1(mprddqby3dl, 0x33333333);
+#ifdef DEBUGDDRCONF
+printf("0x%08x = 0x%08x\n", mmdc1->mprddqby0dl, mmdc1->mprddqby0dl);
+printf("0x%08x = 0x%08x\n", mmdc1->mprddqby1dl, mmdc1->mprddqby1dl);
+printf("0x%08x = 0x%08x\n", mmdc1->mprddqby2dl, mmdc1->mprddqby2dl);
+printf("0x%08x = 0x%08x\n", mmdc1->mprddqby3dl, mmdc1->mprddqby3dl);
+#endif
 	}
 
 	/* MMDC Termination: rtt_nom:2 RZQ/2(120ohm), rtt_nom:1 RZQ/4(60ohm) */

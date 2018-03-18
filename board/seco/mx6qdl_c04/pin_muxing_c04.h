@@ -6,8 +6,8 @@
  * SPDX-License-Identifier:     GPL-2.0+
  */
 
-#ifndef _BOARD_MX6_SECO_A75_H__
-#define _BOARD_MX6_SECO_A75_H__
+#ifndef _BOARD_MX6_SECO_C04_H__
+#define _BOARD_MX6_SECO_C04_H__
 
 #include <asm/arch/clock.h>
 #include <asm/arch/imx-regs.h>
@@ -170,4 +170,4 @@ iomux_v3_cfg_t const usb_hc1_pads[] = {
 
 
 
-#endif   /* _BOARD_MX6_SECO_A75_H__ */
+#endif   /* _BOARD_MX6_SECO_C04_H__ */

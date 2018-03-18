@@ -87,14 +87,17 @@ int do_secoinit(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	char* board_part = "";
 
 	switch (detect_board_short()) {
+		case MX6_SECO_C04:
+			board_part = "seco_C04";
+			break;
 		case MX6_SECO_A75:
 			board_part = "j_A75";
-		break;
+			break;
 		case MX6_SECO_962:
 			board_part = "962";
-		break;
+			break;
 		default:
-		break;
+			break;
 	}
 
 	if (video) {
@@ -121,7 +124,16 @@ int do_secoinit(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	}
 	
 	// sprintf(fdt_file, "%s/%s-%s%s.dtb", dir_part, modelfdt, board_part, video_part);
+#ifdef CONFIG_MX6DL
 	sprintf(fdt_file, "%s/imx6dl-seco_c04.dtb", dir_part);
+#endif
+#ifdef CONFIG_MX6Q
+#ifdef CONFIG_MX6QP
+	sprintf(fdt_file, "%s/imx6qp-seco_c04.dtb", dir_part);
+#else
+	sprintf(fdt_file, "%s/imx6q-seco_c04.dtb", dir_part);
+#endif
+#endif
 	
 	printf("Device Tree: %s\n", fdt_file);
 	setenv("fdt_file", fdt_file);

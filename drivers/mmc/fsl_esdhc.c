@@ -855,7 +855,7 @@ int fsl_esdhc_initialize(bd_t *bis, struct fsl_esdhc_cfg *cfg)
 	if (!cfg)
 		return -EINVAL;
 
-	priv = calloc(sizeof(struct fsl_esdhc_priv), 1);
+	priv = calloc(1, sizeof(struct fsl_esdhc_priv));
 	if (!priv)
 		return -ENOMEM;
 
@@ -888,7 +888,7 @@ int fsl_esdhc_mmc_init(bd_t *bis)
 {
 	struct fsl_esdhc_cfg *cfg;
 
-	cfg = calloc(sizeof(struct fsl_esdhc_cfg), 1);
+	cfg = calloc(1, sizeof(struct fsl_esdhc_cfg));
 	cfg->esdhc_base = CONFIG_SYS_FSL_ESDHC_ADDR;
 	cfg->sdhc_clk = gd->arch.sdhc_clk;
 	return fsl_esdhc_initialize(bis, cfg);

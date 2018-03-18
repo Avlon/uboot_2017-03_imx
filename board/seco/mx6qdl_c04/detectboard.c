@@ -34,12 +34,20 @@ int detect_revision(void)
 
 int detect_board(void)
 {
+#ifdef CONFIG_MX6QP
+    return MX6_C04QP_2GB_4x512;
+#endif
+#ifdef CONFIG_MX6Q
+    return MX6_C04Q_2GB_4x512;
+#endif
+#ifdef CONFIG_MX6DL
     return MX6_C04DL_2GB_4x512;
+#endif
 }
 
 int detect_board_short(void)
 {
-    return MX6_SECO_A75;
+    return MX6_SECO_C04;
 }
 
 /**
