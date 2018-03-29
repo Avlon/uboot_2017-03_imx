@@ -122,6 +122,30 @@ struct mmdc_p_regs {
 	u32 mpdccr;
 };
 
+/* NoC DDR configuration register set */
+#define MX6QP_NOC_CONF_BASE	0x00BB0000
+struct noc_ddr_conf_regs {
+	u32 reg1;
+	u32 reg2;
+	u32 reg3;
+	u32 reg4;
+
+	u32 reg5;
+	u32 reg6;
+	u32 reg7;
+	u32 reg8;
+
+	u32 reg9;
+	u32 reg10;
+	u32 reg11;
+	u32 reg12;
+
+	u32 reg13;
+	u32 reg14;
+	u32 reg15;
+	u32 reg16;
+};
+
 #define MX6SL_IOM_DDR_BASE     0x020e0300
 struct mx6sl_iomux_ddr_regs {
 	u32 dram_cas;
