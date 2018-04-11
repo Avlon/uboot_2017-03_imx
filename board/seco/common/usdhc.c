@@ -91,6 +91,7 @@ int board_mmc_init (bd_t *bis) {
 
 	switch (port) {
 	case 3:
+	case 2:
 		index = 1;
 		break;
 	case 1:

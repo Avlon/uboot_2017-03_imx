@@ -393,6 +393,12 @@ config TARGET_SECOMX6
  	select BOARD_EARLY_INIT_F
  	select BOARD_LATE_INIT
 
+config TARGET_SECO_A62_MX6QDL
+	bool "Support Seco A62 board module family"
+	select CPU_V7
+	select SECO_SYSTEM
+	select SUPPORT_SPL
+
 config TARGET_SECO_B08
 	bool "Support Seco B08"
 	select CPU_V7
@@ -532,6 +538,7 @@ source "board/liebherr/mccmon6/Kconfig"
 source "board/seco/Kconfig"
 source "board/seco/mx6sx_b08/Kconfig"
 source "board/seco/mx6sdl_uq7/Kconfig"
+source "board/seco/mx6qdl_a62/Kconfig"
 source "board/seco/mx6qdl_c04/Kconfig"
 source "board/solidrun/mx6cuboxi/Kconfig"
 source "board/freescale/picosom-imx6ul/Kconfig"

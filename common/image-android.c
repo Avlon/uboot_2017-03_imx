@@ -101,14 +101,14 @@ int android_image_get_kernel(const struct andr_img_hdr *hdr, int verify,
 	if (bootdev == SD1_BOOT || bootdev == SD2_BOOT ||
 		bootdev == SD3_BOOT || bootdev == SD4_BOOT) {
 		sprintf(newbootargs,
-			" androidboot.storage_type=sd gpt");
+			" androidboot.storage_type=sd gpt ");
 	} else if (bootdev == MMC1_BOOT || bootdev == MMC2_BOOT ||
 		bootdev == MMC3_BOOT || bootdev == MMC4_BOOT) {
 		sprintf(newbootargs,
-			" androidboot.storage_type=emmc");
+			" androidboot.storage_type=emmc ");
 	} else if (bootdev == NAND_BOOT) {
 		sprintf(newbootargs,
-			" androidboot.storage_type=nand");
+			" androidboot.storage_type=nand ");
 	} else
 		printf("boot device type is incorrect.\n");
 	strcat(commandline, newbootargs);

@@ -1,0 +1,9 @@
+if TARGET_SECO_A62_MX6QDL
+
+config SYS_BOARD
+	default "mx6qdl_a62"
+
+config SYS_CONFIG_NAME
+	default "seco_imx6qdl_a62_android"
+
+endif
